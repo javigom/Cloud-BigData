@@ -23,17 +23,6 @@ spark = SparkSession(sc)
 # Lectura del archivo csv: con la opcion "header" hacemos que la primera fila haga de cabecera
 DFVar = spark.read.option("header", "True").csv("IMDb_movies.csv")
 
-# Especificamos que columnas queremos usar para este caso...
-#colNames = DFVar.schema.names
-#wantedCols = ["imdb_title_id", "title", "year", "genre", "country", "director", "avg_vote"]
-
-# ... y nos deshacemos del resto
-#droppedCols = set(colNames).symmetric_difference(set(wantedCols))
-#DFVar = DFVar.drop(*droppedCols)
-
-# Los guardamos en disco
-#DFVar.write.format("csv").save("./output/Prueba")
-
 DFVar2 = DFVar.select(DFVar['country'], DFVar['avg_vote'])
 RDDVar = DFVar2.rdd.map(lambda (x, y): (x, y))
 
