@@ -12,6 +12,7 @@ from pyspark.sql.functions import col, split, sum, mean, ceil, collect_list, asc
 
 import string
 import sys
+import re
 reload(sys)
 sys.setdefaultencoding('utf8')
 
@@ -23,8 +24,40 @@ spark = SparkSession(sc)
 # Lectura del archivo csv: con la opcion "header" hacemos que la primera fila haga de cabecera
 DFVar = spark.read.option("header", "True").csv("IMDb_movies.csv")
 
+# Selecciono las columnas pais y media de votos
 DFVar2 = DFVar.select(DFVar['country'], DFVar['avg_vote'])
+
+# Lo transformo en un rdd
 RDDVar = DFVar2.rdd.map(lambda (x, y): (x, y))
 
-RDDVar2 = RDDVar.filter(lambda(x, y): len(y) < 4) 
-RDDVar2.saveAsTextFile("output")
+# Hago un filtro para evitar errores
+RDDVar2 = RDDVar.filter(lambda(x, y): esFloat(y) and esString(x)) 
+
+def esString(line):
+    try:
+        str(line)
+        return True
+    except ValueError:
+        return False
+        
+def esFloat(valoracion):
+    try:
+        float(valoracion)
+     	return True
+    except ValueError:
+        return False
+
+# Me quedo con el primer país y transformo la nota en un float
+RDDVar3 = RDDVar2.map(lambda(x, y): (re.split(',', str(x))[0], float(y)))
+
+# Suma de la nota de los paises por clave
+suma = RDDVar3.reduceByKey(lambda x, y: x+y)
+
+# Contador del numero de veces que aparece un pais
+counter = RDDVar3.map(lambda (x, y): (x, 1)).reduceByKey(lambda x, y: x+y)
+
+# Calculo de la media
+res = suma.union(counter).reduceByKey(lambda x, y: x/y)
+
+# Lo guardo en un fichero de texto
+res.sortByKey().saveAsTextFile("media_paises")
