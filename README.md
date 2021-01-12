@@ -17,7 +17,6 @@ Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor 
  
  ## QUIENES SOMOS
  
- ### Description of the need for Big Data
  ### Description of solution and comparison with existing work on the problem
  ### Description of your model and/or data in detail: where did it come from, how did you acquire it, what does it mean, etc.
  ### Technical description of the parallel application, programming models, platform and infrastructure
