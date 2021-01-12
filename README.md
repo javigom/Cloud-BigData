@@ -1,31 +1,31 @@
-# ANÁLISIS DE PELÍCULAS PARA ENCONTRAR TENDENCIAS
+# MOVIE TRENDS
 
- ## INTRODUCCIÓN
+## INTRODUCCIÓN
  
  Este proyecto nace de una idea muy simple, somos un alto cargo de una empresa de distribución de películas como Netflix y queremos sacar el máximo beneficio de las películas que compramos y producimos, para alcanzar y mantener el mayor número de suscripciones a nuestra plataforma. ¿Cual fue el género más visto en años anteriores? ¿Que películas fueron las mejor valoradas? ¿Que actores/actrices han sido los mejor puntuados? La respuesta a estas preguntas nos ayuda a tomar decisiones para sacar una mayor rentabilidad a nuestra empresa.
  
- ### Necesidad del Big Data
+### Necesidad del Big Data
  El Big Data es necesario por la gran cantidad de datos que manejamos, actualmente +85k películas, con posible expansión de datos a partir de otras plataformas. 
 Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor velocidad.
  Haciendo uso de estos datos y de métodos estadísticos se pueden hacer predicciones, a mayor cantidad de datos mayor fiabilidad del resultado. Estas predicciones hablan de los gustos y necesidades de los espectadores y de cómo van evolucionando. La evolución tiene que ver con los avances tecnológicos y culturales, lo que vemos reflejado en los datos.
 
  
  
- ## RESULTADOS DE NUESTRO ESTUDIO
+## RESULTADOS DE NUESTRO ESTUDIO
  
- ## CÓMO FUNCIONA
+## CÓMO FUNCIONA
  
- ## QUIENES SOMOS
+## QUIENES SOMOS
  
- ### Description of solution and comparison with existing work on the problem
- ### Description of your model and/or data in detail: where did it come from, how did you acquire it, what does it mean, etc.
- ### Technical description of the parallel application, programming models, platform and infrastructure
- ### Links to repository with source code, evaluation data sets and test cases
- ### Technical description of the software design, code baseline, dependencies, how to use the code, and system and environment needed to reproduce your tests
- ### Performance evaluation (speed-up, throughput, weak and strong scaling) and discussion about overheads and optimizations done
- ### Description of advanced features like models/platforms not explained in class, advanced functions of modules, techniques to mitigate overheads, challenging parallelization or implementation aspects...
- ### Final discussion about goals achieved, improvements suggested, lessons learnt, future work, interesting insights...
- ### Citations
+### Description of solution and comparison with existing work on the problem
+### Description of your model and/or data in detail: where did it come from, how did you acquire it, what does it mean, etc.
+### Technical description of the parallel application, programming models, platform and infrastructure
+### Links to repository with source code, evaluation data sets and test cases
+### Technical description of the software design, code baseline, dependencies, how to use the code, and system and environment needed to reproduce your tests
+### Performance evaluation (speed-up, throughput, weak and strong scaling) and discussion about overheads and optimizations done
+### Description of advanced features like models/platforms not explained in class, advanced functions of modules, techniques to mitigate overheads, challenging parallelization or implementation aspects...
+### Final discussion about goals achieved, improvements suggested, lessons learnt, future work, interesting insights...
+### Citations
 
 You can use the [editor on GitHub](https://github.com/ramonarj/Cloud-BigData/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
