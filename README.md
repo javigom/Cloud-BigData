@@ -4,6 +4,12 @@
  
  Este proyecto nace de una idea muy simple, somos un alto cargo de una empresa de distribución de películas como Netflix y queremos sacar el máximo beneficio de las películas que compramos y producimos, para alcanzar y mantener el mayor número de suscripciones a nuestra plataforma. ¿Cual fue el género más visto en años anteriores? ¿Que películas fueron las mejor valoradas? ¿Que actores/actrices han sido los mejor puntuados? La respuesta a estas preguntas nos ayuda a tomar decisiones para sacar una mayor rentabilidad a nuestra empresa.
  
+ ### Necesidad del Big Data
+ El Big Data es necesario por la gran cantidad de datos que manejamos, actualmente +85k películas, con posible expansión de datos a partir de otras plataformas. 
+Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor velocidad.
+ Haciendo uso de estos datos y de métodos estadísticos se pueden hacer predicciones, a mayor cantidad de datos mayor fiabilidad del resultado. Estas predicciones hablan de los gustos y necesidades de los espectadores y de cómo van evolucionando. La evolución tiene que ver con los avances tecnológicos y culturales, lo que vemos reflejado en los datos.
+
+ 
  
  ## RESULTADOS DE NUESTRO ESTUDIO
  
