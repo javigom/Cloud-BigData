@@ -2,11 +2,12 @@
 
  ## INTRODUCCIÓN
  
+ Este proyecto nace de una idea muy simple, somos un alto cargo de una empresa de distribución de películas como Netflix y queremos sacar el máximo beneficio de las películas que compramos y producimos, para alcanzar y mantener el mayor número de suscripciones a nuestra plataforma.
  
  
  ## RESULTADOS DE NUESTRO ESTUDIO
  
- ## COMO FUNCIONA
+ ## CÓMO FUNCIONA
  
  ## QUIENES SOMOS
  
