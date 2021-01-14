@@ -7,7 +7,7 @@
 # Javier Gomez Moraleda
 # Michael Steven Paredes Sanchez
 
-''' Procesa el archivo IMDb_movies para hallar la media aritmetica de las peliculas hechas por cada pais '''
+''' Procesa el archivo IMDb_movies para hallar el numero total de peliculas hechas por cada pais '''
 
 ## IMPORTS ##
 # Python
@@ -34,34 +34,31 @@ DFVar = spark.read.option("header", "True").csv("../datasets/IMDb_movies.csv")
 # Selecciono las columnas pais y media de votos
 DFVar = DFVar.select(DFVar['country'], DFVar['avg_vote'])
 
+# Lo transformo en un rdd
+RDDVar = DFVar.rdd.map(lambda (x, y): (unicode(x), y))
+
 #Función que devuelve True si la valoracion se puede transformar en float 
 def esFloat(valoracion):
     try:
         float(valoracion)
-        return True
+     	return True
     except ValueError:
         return False
-
-# Lo transformo en un rdd y hago un filtro de errores
-RDDVar = DFVar.rdd.map(lambda (x, y): (x, y)).filter(lambda(x, y): esFloat(y) and x != None) 
+        
+# Hago un filtro para evitar errores
+RDDVar = RDDVar.filter(lambda(x, y): esFloat(y) and x != None) 
 
 # Me quedo con el primer pais y transformo la nota en un float
-RDDVar = RDDVar.map(lambda(x, y): (re.split(',', unicode(x))[0], float(y)))
-
-# Suma de la nota de los paises por clave
-suma = RDDVar.reduceByKey(lambda x, y: x+y)
+RDDVar = RDDVar.map(lambda(x, y): (re.split(',', x)[0], float(y)))
 
 # Contador del numero de veces que aparece un pais
 counter = RDDVar.map(lambda (x, y): (x, 1)).reduceByKey(lambda x, y: x+y)
 
-# Calculo de la media
-res = suma.union(counter).reduceByKey(lambda x, y: round(x/y, 1))
-
 # Transformacion en un DF ordenado alfabeticamente
-DFRes = res.toDF(["country", "avg"]).sort(desc("avg"))
+DFRes = counter.toDF(["country", "count"]).sort(desc("count"))
 
 # Lo muestro por la consola
 DFRes.show(1000)
 
-# Lo guardo en un fichero de texto
-#DFRes.write.format("csv").save("../output/media_por_pais")
+# Lo guardo en un fichero
+#DFRes.write.format("csv").save("../output/peliculas_por_pais")
