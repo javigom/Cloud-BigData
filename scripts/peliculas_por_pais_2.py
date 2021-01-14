@@ -9,8 +9,7 @@ hechas por cada pais '''
 
 ## IMPORTS ##
 # Python
-import time
-start_time = time.time()
+
 import string
 import sys
 
@@ -19,23 +18,7 @@ from pyspark import SparkConf, SparkContext, SQLContext
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, split, sum, mean, ceil, collect_list, asc, desc
 
-# Graficos
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-
-
-## CONSTANTES ##
-VISIBLE_COUNTRIES = 13 # Solo queremos mostrar 10 a la vez
-
-
 ## INICILIAZACION DE SPARK ##
-''' BENCHMARK: para obtener tiempos optimos 
-- Numero de tareas = coincide con el num. de particiones del dataframe.
-Por defecto se crean 200, pero nosotros usamos una heuristica de [num. ejecutores * num.cores de cada ejecutor] 
-- Numero de ejecutores = 1 si se lanza en local, tantos como nodos si se trata de un cluster 
-- Numero de hilos/ejecutor = usaremos tantos cores como tenga el ejecutor (local[*])
-'''
 conf = SparkConf().setMaster('local[*]').setAppName('peliculas_por_pais')
 sc = SparkContext(conf = conf)
 spark = SparkSession(sc)
@@ -65,39 +48,7 @@ DFVar = DFVar.drop("country")
 # Agrupamos los datos
 DFVar = DFVar.groupBy("mainCountry").count()
 
-def pais(x,y):
-    if (y < 1000):
-        return "Others"
-    else:
-        return x
-        
-RDDVar = DFVar.rdd.map(lambda (x, y): (pais(x,y), y))
-DFVar = RDDVar.reduceByKey(lambda x, y: x+y).toDF()
-
 DFVar = DFVar.withColumnRenamed("_1", "Country").withColumnRenamed("_2", "Count")
 DFVar = DFVar.sort(desc("Count"))
 
-DFVar.show(20)
-
-## GRAFICA ##
-# Preprocesado
-num_countries = DFVar.count()
-DFVar = DFVar.limit(VISIBLE_COUNTRIES)
-
-# Metadatos
-labels = DFVar.select("Country").rdd.flatMap(lambda x: x).collect()
-sizes = DFVar.select("Count").rdd.flatMap(lambda x: x).collect()
-explode = (0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-
-# Se dibuja el grafico de tarta
-fig1, ax1 = plt.subplots()
-ax1.pie(sizes, explode=explode, autopct='%1.1f%%', shadow=True, startangle=90)
-ax1.axis('equal') # para que sea un circulo
-
-plt.legend(labels)
-
-# La guardamos en el sistema de ficheros
-plt.savefig('../results/peliculas_por_pais2.png')
-
-# Debug del tiempo, para el benchmarking
-print("--- %s seconds ---" % (time.time() - start_time))
+DFVar.write.format("csv").save("../output/peliculas_por_pais")
