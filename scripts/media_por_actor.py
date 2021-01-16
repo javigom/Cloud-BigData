@@ -73,7 +73,7 @@ def devuelveMediaPelis(nombre):
         mediaPelis = res.collect()[0][1]
     except:
         mediaPelis = 0
-    return mediaPelis
+    return round(mediaPelis, 1)
 
 # PRUEBAS PARA COMPROBAR EL CORRECTO FUNCIONAMIENTO DE devuelveMediaPelis
 #print(devuelveMediaPelis(unicode(u'Polly Bergen')))
