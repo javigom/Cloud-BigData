@@ -23,7 +23,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, split, sum, mean, ceil, collect_list, asc, desc
 
 # Inicializamos Spark
-conf = SparkConf().setMaster('local').setAppName('RatingPerCountry')
+conf = SparkConf().setMaster('local').setAppName('MoviesPerCountry')
 sc = SparkContext(conf = conf)
 spark = SparkSession(sc)
 
