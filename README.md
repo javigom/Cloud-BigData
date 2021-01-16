@@ -8,11 +8,10 @@
  El Big Data es necesario por la gran cantidad de datos que manejamos, actualmente +85k películas, con posible expansión de datos a partir de otras plataformas. 
 Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor velocidad.
  Haciendo uso de estos datos y de métodos estadísticos se pueden hacer predicciones, a mayor cantidad de datos mayor fiabilidad del resultado. Estas predicciones hablan de los gustos y necesidades de los espectadores y de cómo van evolucionando. La evolución tiene que ver con los avances tecnológicos y culturales, lo que vemos reflejado en los datos.
- 
-### Description of solution and comparison with existing work on the problem
- 
- 
+
 ## RESULTADOS DE NUESTRO ESTUDIO
+
+ ### Description of solution and comparison with existing work on the problem
  ### Description of your model and/or data in detail: where did it come from, how did you acquire it, what does it mean, etc.
  
 ## CÓMO FUNCIONA
