@@ -8,24 +8,33 @@
  El Big Data es necesario por la gran cantidad de datos que manejamos, actualmente +85k películas, con posible expansión de datos a partir de otras plataformas. 
 Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor velocidad.
  Haciendo uso de estos datos y de métodos estadísticos se pueden hacer predicciones, a mayor cantidad de datos mayor fiabilidad del resultado. Estas predicciones hablan de los gustos y necesidades de los espectadores y de cómo van evolucionando. La evolución tiene que ver con los avances tecnológicos y culturales, lo que vemos reflejado en los datos.
-
+ 
+### Description of solution and comparison with existing work on the problem
  
  
 ## RESULTADOS DE NUESTRO ESTUDIO
+ ### Description of your model and/or data in detail: where did it come from, how did you acquire it, what does it mean, etc.
  
 ## CÓMO FUNCIONA
+ ### Technical description of the parallel application, programming models, platform and infrastructure
+ ### Technical description of the software design, code baseline, dependencies, how to use the code, and system and environment needed to reproduce your tests
+ ### Performance evaluation (speed-up, throughput, weak and strong scaling) and discussion about overheads and optimizations done
+ ### Description of advanced features like models/platforms not explained in class, advanced functions of modules, techniques to mitigate overheads, challenging parallelization or implementation aspects...
  
-## QUIENES SOMOS
- 
-### Description of solution and comparison with existing work on the problem
-### Description of your model and/or data in detail: where did it come from, how did you acquire it, what does it mean, etc.
-### Technical description of the parallel application, programming models, platform and infrastructure
-### Links to repository with source code, evaluation data sets and test cases
-### Technical description of the software design, code baseline, dependencies, how to use the code, and system and environment needed to reproduce your tests
-### Performance evaluation (speed-up, throughput, weak and strong scaling) and discussion about overheads and optimizations done
-### Description of advanced features like models/platforms not explained in class, advanced functions of modules, techniques to mitigate overheads, challenging parallelization or implementation aspects...
-### Final discussion about goals achieved, improvements suggested, lessons learnt, future work, interesting insights...
+## CONCLUSIÓN
 ### Citations
+
+## QUIENES SOMOS
+ ### Links to repository with source code, evaluation data sets and test cases
+
+
+
+
+
+
+
+
+
 
 You can use the [editor on GitHub](https://github.com/ramonarj/Cloud-BigData/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
