@@ -27,7 +27,7 @@ import matplotlib.pyplot as plt
 ## CONSTANTES
 AGE_RANGES = ["0-18", "18-30", "30-45", "45-100"]
 AGE_RANGES_NO = 4
-MOVIES_PER_RANGE = 3
+MOVIES_PER_RANGE = 5
 
 ## INICILIAZACION DE SPARK ##
 ''' BENCHMARK: para obtener tiempos optimos 
@@ -75,7 +75,7 @@ for i in range(AGE_RANGES_NO):
 ## Vamos al archivo de las peliculas y hallamos los nombres de estas
 DFVar = spark.read.option("header", "true").csv("../datasets/IMDb_movies.csv")
 colNames = DFVar.schema.names
-wantedCols = ["imdb_title_id","title", "year", "genre", "duration"]
+wantedCols = ["imdb_title_id","title", "year", "genre", "duration", "avg_vote"]
 
 droppedCols = set(colNames).symmetric_difference(set(wantedCols))
 DFVar = DFVar.drop(*droppedCols)
@@ -87,7 +87,7 @@ for i in range (AGE_RANGES_NO):
 	AuxDF = DFVar.where(DFVar["imdb_title_id"].isin(*movieIds[i]))
 	AuxDF = AuxDF.drop("imdb_title_id")
 	AuxDF.show()
-	# TODO: mostrar graficamente los resultados (en png, no consola)
+	AuxDF.coalesce(1).write.format("csv").option("header", "true").save("../results/" + AGE_RANGES[i] + "_favourites.csv")
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))

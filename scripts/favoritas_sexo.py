@@ -85,6 +85,8 @@ for i in range (len(SEXES)):
 	AuxDF = DFVar.where(DFVar["imdb_title_id"].isin(*movieIds[i]))
 	AuxDF = AuxDF.drop("imdb_title_id")
 	AuxDF.show()
+	AuxDF.coalesce(1).write.format("csv").option("header", "true").save("../results/" + SEXES[i] + "_favourites.csv")
+
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))
