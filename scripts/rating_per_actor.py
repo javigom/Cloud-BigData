@@ -125,7 +125,7 @@ res = suma.union(counter).reduceByKey(lambda x, y: round(x/y, 1))
 DFRes = res.map(lambda (x, y): (NamesDict.get(x), y)).toDF(["Name", "Rating"]).sort(desc("Rating"))
 
 # Lo guardo en un fichero
-DFRes.write.format("csv").save("../output/media_por_actor")
+DFRes.write.format("csv").save("../output/rating_per_actor")
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))
