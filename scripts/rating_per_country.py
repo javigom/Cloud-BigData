@@ -75,7 +75,7 @@ res = suma.union(counter).reduceByKey(lambda x, y: round(x/y, 1))
 DFRes = res.toDF(["Country", "Rating"]).sort(desc("Rating"))
 
 # Lo guardo en un fichero de texto
-DFRes.write.format("csv").save("../output/rating_country")
+DFRes.write.format("csv").save("../output/rating_per_country")
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))
