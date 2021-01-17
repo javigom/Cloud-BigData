@@ -20,7 +20,7 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 # Spark
-from pyspark import SparkConf, SparkContext
+from pyspark import SparkConf, SparkContext, SQLContext
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, split, sum, mean, ceil, collect_list, asc, desc
 
