@@ -40,6 +40,7 @@ sqlContext.setConf("spark.sql.shuffle.partitions", DATAFRAME_PARTITIONS)
 
 ## PROCESAMIENTO DE LOS DATOS ##
 
+
 ## FICHERO TITLE PRINCIPALS ##
 
 # Lectura del archivo csv: con la opcion "header" hacemos que la primera fila haga de cabecera
@@ -53,6 +54,7 @@ DFtp = DFtp.filter((DFtp["category"] == "actress") | (DFtp["category"] == "actor
 
 # Elimino la columna de la gategoria
 DFtp = DFtp.select(DFtp["imdb_title_id"], DFtp["imdb_name_id"])
+
 
 ## FICHERO MOVIES ##
   
@@ -78,6 +80,7 @@ MoviesList = RDDMovies.collect()
 
 #Lo convierto en un diccionario para usarlo mas adelante
 MoviesDict = dict(MoviesList)
+
 
 ## FICHERO NAMES ##
   

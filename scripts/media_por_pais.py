@@ -11,6 +11,8 @@
 
 ## IMPORTS ##
 # Python
+import time
+start_time = time.time()
 import string
 import sys
 import re
@@ -22,12 +24,24 @@ from pyspark import SparkConf, SparkContext
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, split, sum, mean, ceil, collect_list, asc, desc
 
-# Inicializamos Spark
-conf = SparkConf().setMaster('local').setAppName('RatingPerCountry')
+## INICILIAZACION DE SPARK ##
+''' BENCHMARK: para obtener tiempos optimos 
+- Numero de tareas = coincide con el num. de particiones del dataframe.
+Por defecto se crean 200, pero nosotros usamos una heuristica de [num. ejecutores * num.cores de cada ejecutor] 
+- Numero de ejecutores = 1 si se lanza en local, tantos como nodos si se trata de un cluster 
+- Numero de hilos/ejecutor = usaremos tantos cores como tenga el ejecutor (local[*])
+'''
+conf = SparkConf().setMaster('local[*]').setAppName('RatingPerCountry')
 sc = SparkContext(conf = conf)
 spark = SparkSession(sc)
+sqlContext = SQLContext(sc)
+
+# Num de tareas
+DATAFRAME_PARTITIONS = 1
+sqlContext.setConf("spark.sql.shuffle.partitions", DATAFRAME_PARTITIONS)
 
 ## PROCESAMIENTO DE LOS DATOS ##
+
 # Lectura del archivo csv: con la opcion "header" hacemos que la primera fila haga de cabecera
 DFVar = spark.read.option("header", "True").csv("../datasets/IMDb_movies.csv")
 
@@ -58,10 +72,10 @@ counter = RDDVar.map(lambda (x, y): (x, 1)).reduceByKey(lambda x, y: x+y)
 res = suma.union(counter).reduceByKey(lambda x, y: round(x/y, 1))
 
 # Transformacion en un DF ordenado alfabeticamente
-DFRes = res.toDF(["country", "avg"]).sort(desc("avg"))
-
-# Lo muestro por la consola
-DFRes.show(1000)
+DFRes = res.toDF(["Country", "Rating"]).sort(desc("Rating"))
 
 # Lo guardo en un fichero de texto
-#DFRes.write.format("csv").save("../output/media_por_pais")
+DFRes.write.format("csv").save("../output/rating_country")
+
+# Debug del tiempo, para el benchmarking
+print("--- %s seconds ---" % (time.time() - start_time))

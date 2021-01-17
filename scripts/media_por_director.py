@@ -7,6 +7,8 @@
 # Javier Gomez Moraleda
 # Michael Steven Paredes Sanchez
 
+''' Procesa el archivo IMDb_movies, IMDb_names e IMDb_title_principals para hallar la media aritmetica de las peliculas en las que han participado cada director '''
+
 ## IMPORTS ##
 # Python
 import time
@@ -39,7 +41,6 @@ DATAFRAME_PARTITIONS = 6
 sqlContext.setConf("spark.sql.shuffle.partitions", DATAFRAME_PARTITIONS)
 
 ## PROCESAMIENTO DE LOS DATOS ##
-
 
 ## FICHERO TITLE PRINCIPALS ##
 
@@ -128,7 +129,7 @@ res = suma.union(counter).reduceByKey(lambda x, y: round(x/y, 1))
 DFRes = res.map(lambda (x, y): (NamesDict.get(x), y)).toDF(["Name", "Rating"]).sort(desc("Rating"))
 
 # Lo guardo en un fichero
-DFRes.write.format("csv").save("../output/media_por_director")
+DFRes.write.format("csv").save("../output/rating_director")
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))
