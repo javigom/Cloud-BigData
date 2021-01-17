@@ -7,6 +7,8 @@
 # Javier Gomez Moraleda
 # Michael Steven Paredes Sanchez
 
+''' Procesa el archivo IMDb_movies, IMDb_names e IMDb_title_principals para hallar la media de las peliculas en las que han participado cada actor/actriz. '''
+
 ## IMPORTS ##
 # Python
 import time
