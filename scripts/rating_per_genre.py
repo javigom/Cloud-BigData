@@ -24,11 +24,6 @@ from pyspark import SparkConf, SparkContext, SQLContext
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, split, sum, mean, ceil, collect_list, asc, desc
 
-# Spark
-from pyspark import SparkConf, SparkContext, SQLContext
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, split, sum, mean, ceil, collect_list, asc, desc
-
 ## INICILIAZACION DE SPARK ##
 ''' BENCHMARK: para obtener tiempos optimos 
 - Numero de tareas = coincide con el num. de particiones del dataframe.
