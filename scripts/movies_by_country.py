@@ -37,7 +37,7 @@ Por defecto se crean 200, pero nosotros usamos una heuristica de [num. ejecutore
 - Numero de ejecutores = 1 si se lanza en local, tantos como nodos si se trata de un cluster 
 - Numero de hilos/ejecutor = usaremos tantos cores como tenga el ejecutor (local[*])
 '''
-conf = SparkConf().setMaster('local[*]').setAppName('peliculas_por_pais')
+conf = SparkConf().setMaster('local[*]').setAppName('moviesByCountry')
 sc = SparkContext(conf = conf)
 spark = SparkSession(sc)
 sqlContext = SQLContext(sc)
@@ -92,7 +92,7 @@ ax1.axis('equal') # para que sea un circulo
 plt.legend(labels, loc = "upper left")
 
 # La guardamos en el sistema de ficheros
-plt.savefig('../results/peliculas_por_pais.png')
+plt.savefig('../results/movies_by_country.png')
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))
