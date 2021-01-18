@@ -32,7 +32,7 @@ Como hemos visto anteriormente, nuestro dataset se compone de 4 ficheros complem
  - **IMDb_ratings.csv**: información sobre las valoraciones
  - **IMDb_title_principals.csv**: información sobre la relacion de una película y las personas que participan en ella
  
-Las versiones subidas en la GitHub, son una versión reducida debido a la limitación de espacio de la propia plataforma.
+Las versiones subidas en la GitHub, son una versión reducida debido a la limitación de espacio de la propia plataforma. Para obtener el dataset completo, visita el siguiente enlace (https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset?select=IMDb+title_principals.csv).
 
 El software, lo hemos desarrollado en Python utilizando el dataset mencionado anteriormente. Se componen de varios scripts con distintos propósitos. A continuación mostramos una breve descripción de cada script, el código se encuentra subido en nuestro repositorio de GitHub.
 
