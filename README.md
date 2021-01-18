@@ -10,6 +10,9 @@
    - Nuestro software
    - Reproducir nuestro estudio
 4. **Rendimiento**
+   - Número de ejecutores
+   - Número de hilos/ejecutor
+   - Número de tareas
 5. **Conclusiones**
 
 ## 1. Introducción - MICHAEL
@@ -38,7 +41,7 @@ Para nuestro proyecto, las herramientas que vamos a utilizar son las siguientes:
 - Para procesar dichos scripts hemos utilizado **Apache Spark**, ya que nos permite hacer uso de una programación funcional paralela.
 - Para llevar a cabo las pruebas de nuestros scripts, hemos utilizado **Amazon Web Services** como plataforma para la ejecución de dichos scripts. 
 
-### Nuestro software
+### - Nuestro software -
 
 Como hemos visto anteriormente, nuestro dataset se compone de 4 ficheros complementarios en formato CSV: 
  - **IMDb_movies.csv**: información sobre las películas
