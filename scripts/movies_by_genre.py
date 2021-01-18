@@ -7,7 +7,8 @@
 # Javier Gomez Moraleda
 # Michael Steven Paredes Sanchez
 
-''' Procesa el archivo IMDb_movies para hallar el numero total de peliculas de cada genero '''
+''' Procesa el archivo IMDb_movies para hallar el numero total de peliculas
+hechas por cada genero '''
 
 ## IMPORTS ##
 # Python
@@ -15,7 +16,6 @@ import time
 start_time = time.time()
 import string
 import sys
-import re
 reload(sys)
 sys.setdefaultencoding('utf8')
 
@@ -24,6 +24,17 @@ from pyspark import SparkConf, SparkContext, SQLContext
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, split, sum, mean, ceil, collect_list, asc, desc
 
+
+# Graficos
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
+
+## CONSTANTES ##
+VISIBLE_GENRES = 10 # Solo queremos mostrar 10 a la vez
+
+
 ## INICILIAZACION DE SPARK ##
 ''' BENCHMARK: para obtener tiempos optimos 
 - Numero de tareas = coincide con el num. de particiones del dataframe.
@@ -31,47 +42,65 @@ Por defecto se crean 200, pero nosotros usamos una heuristica de [num. ejecutore
 - Numero de ejecutores = 1 si se lanza en local, tantos como nodos si se trata de un cluster 
 - Numero de hilos/ejecutor = usaremos tantos cores como tenga el ejecutor (local[*])
 '''
-conf = SparkConf().setMaster('local[*]').setAppName('MoviesByGenre')
+conf = SparkConf().setMaster('local[*]').setAppName('moviesByCountry')
 sc = SparkContext(conf = conf)
 spark = SparkSession(sc)
 sqlContext = SQLContext(sc)
 
-# Num de tareas
-DATAFRAME_PARTITIONS = 2
-sqlContext.setConf("spark.sql.shuffle.partitions", DATAFRAME_PARTITIONS)
+# Particiones de los datos: tantas como cores tengamos
+sqlContext.setConf("spark.sql.shuffle.partitions", "1")
 
 ## PROCESAMIENTO DE LOS DATOS ##
 # Lectura del archivo csv: con la opcion "header" hacemos que la primera fila haga de cabecera
 DFVar = spark.read.option("header", "true").csv("../datasets/IMDb_movies.csv")
 
-# Selecciono la columna del genero y media de votos
-DFVar = DFVar.select(DFVar['genre'], DFVar['avg_vote'])
+# Especificamos que columnas queremos usar para este caso...
+colNames = DFVar.schema.names 
+wantedCols = ["genre"]
 
-# Lo transformo en un rdd
-RDDVar = DFVar.rdd.map(lambda (x, y): (unicode(x), y))
+# ... y nos deshacemos del resto
+droppedCols = set(colNames).symmetric_difference(set(wantedCols))
+DFVar = DFVar.drop(*droppedCols)
 
-#Función que devuelve True si la valoracion se puede transformar en float 
-def esFloat(valoracion):
-    try:
-        float(valoracion)
-     	return True
-    except ValueError:
-        return False
-        
-# Hago un filtro para evitar errores
-RDDVar = RDDVar.filter(lambda(x, y): esFloat(y) and x != None) 
+# Nos quedamos solo con el pais principal de la pelicula
+num_movies = DFVar.count()
+DFVar = DFVar.withColumn("mainGenre", split(col("genre"), "\\,").getItem(0))
+DFVar = DFVar.drop("genre")
 
-# Me quedo con el primer genero y transformo la nota en un float
-RDDVar = RDDVar.map(lambda(x, y): (re.split(',', x)[0], float(y)))
-
-# Contador del numero de veces que aparece un genero
-counter = RDDVar.map(lambda (x, y): (x, 1)).reduceByKey(lambda x, y: x+y)
-
-# Transformacion en un DF ordenado alfabeticamente
-DFRes = counter.toDF(["Genre", "Count"]).sort(desc("Count"))
+# Agrupamos los datos y los ordenamos de mayor a menor
+DFVar = DFVar.groupBy("mainGenre").count()
+DFVar = DFVar.sort(desc("count"))
 
 # Lo guardo en un fichero
-DFRes.write.format("csv").save("../output/movies_by_genre")
+DFVar.write.format("csv").save("../output/movies_by_genre")
+
+## GRAFICA ##
+# Preprocesado
+num_genres = DFVar.count()
+DFVar = DFVar.limit(VISIBLE_GENRES - 1)
+
+# Le metemos una fila al DF
+maingenres_movies = DFVar.agg(sum("count")).select("sum(count)").rdd.flatMap(lambda x: x).collect()[0]
+otros_lista = [["Others", num_movies - maingenres_movies]]
+otros_DF = spark.createDataFrame(otros_lista)
+DFVar = DFVar.union(otros_DF)
+DFVar.show()
+
+# Metadatos
+labels = DFVar.select("mainGenre").rdd.flatMap(lambda x: x).collect()
+sizes = DFVar.select("count").rdd.flatMap(lambda x: x).collect()
+explode = [0] * VISIBLE_GENRES
+explode[0] = 0.1
+
+# Se dibuja el grafico de tarta
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, explode=explode, autopct='%1.1f%%', 
+pctdistance=1.1, shadow=True, startangle=90)
+ax1.axis('equal') # para que sea un circulo
+plt.legend(labels, loc = "upper left")
+
+# La guardamos en el sistema de ficheros
+plt.savefig('../results/movies_by_genre.png')
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))
