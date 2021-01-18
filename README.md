@@ -6,6 +6,9 @@
    - Solución
 2. **Modelo de datos**
 3. **Descripción técnica**
+   - Entorno de trabajo
+   - Nuestro software
+   - Reproducir nuestro estudio
 4. **Rendimiento**
 5. **Conclusiones**
 
