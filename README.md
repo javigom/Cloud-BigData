@@ -1,6 +1,6 @@
 # MOVIE TRENDS
 
-## INTRODUCCIÓN
+## 1. INTRODUCCIÓN
  
  Este proyecto nace de una idea muy simple, somos un alto cargo de una empresa de distribución de películas como Netflix y queremos sacar el máximo beneficio de las películas que compramos y producimos, para alcanzar y mantener el mayor número de suscripciones a nuestra plataforma. ¿Cual fue el género más visto en años anteriores? ¿Que películas fueron las mejor valoradas? ¿Que actores/actrices han sido los mejor puntuados? La respuesta a estas preguntas nos ayuda a tomar decisiones para sacar una mayor rentabilidad a nuestra empresa.
  
