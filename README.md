@@ -67,33 +67,19 @@ $ sudo apt-add-repository ppa:webupd8team/java
 $ sudo apt-get update
 $ sudo apt install openjdk-8-jdk
 ```
-Comprobación de que todo ha funcionado correctamente:
-```markdown
-$ java -version
-openjdk version "1.8.0_242"
-OpenJDK Runtime Environment (build 1.8.0_242-8u242-b08-0ubuntu3~16.04-b08)
-OpenJDK 64-Bit Server VM (build 25.242-b08, mixed mode)
-```
+
 **2. Instalación de Scala:**
 ```markdown
 $ sudo apt-get install scala
-```
-Comprobación de que todo ha funcionado correctamente:
-```markdown
-$ scala -version
-Scala code runner version 2.11.6 -- Copyright 2002-2013, LAMP/EPFL
 ```
 
 **3. Instalación de Python:**
 ```markdown
 $ sudo apt-get install python
 ```
-Comprobación de que todo ha funcionado correctamente:
-```markdown
-$ python -h
-```
 
-**4. Instalación de Spark:**
+**4. Instalación de Spark y configuración del entorno:**
+Descargamos Spark de la página, lo descomprimimos y copiamos todos sus archivos a la carpeta 'local'
 ```markdown
 $ sudo curl -O http://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz
 $ sudo tar xvf ./spark-2.2.0-bin-hadoop2.7.tgz
@@ -114,28 +100,29 @@ $ cat /etc/hosts
 172.30.4.210 ip-172-30-4-210
 ```
 
-**6. Instalar PIP:**
-```markdown
-sudo apt-get install python-pip
-```
-
 **7. Instalar Matplotlib:**
 ```markdown
-pip install matplotlib
+sudo apt-get install python-matplotlib
 ```
-**8. Subir los scripts y el dataset (sólo si estamos en AWS):**
 
-Mediante el comando **SCP**, necesitaremos subir todos los ficheros necesarios (scripts y dataset) para el correcto desarrollo del estudio.
+**8. Descargar los archivos:**
+Se deben crear 3 carpetas; 'scripts/', 'datasets/' y 'results/' de forma similar a la que se ve en el repositorio.
+Se copian por tanto los 4 datasets en su carpeta, y los scripts que queramos testar en la correspondiente.
+
 
 **9. Ejecución de los scripts:**
-Haciendo uso de spark, le mandaremos el siguiente trabajo del script que queramos ejecutar en cuestión. Por ejemplo, suponiendo que nos encontremos en la ruta donde están guardados los scripts:
+Desde dentro de la carpeta 'scripts/', debemos encargar a Spark que ejecute el programa. Por ejemplo:
 ```markdown
 spark-submit movies_by_country.py
 ```
 
+Los resultados se guardarán automáticamente dentro de la carpeta 'results'. Si el script genera un '.csv', se creará una carpeta con un único archivo dentro. El nombre de este archivo es del tipo 'partxxxx-xxxxx', pero se encuentra ya unido con las demás particiones creadas por Spark.
+Si por el contrario genera un png, se guardará directamente en la carpeta 'results'.
+
 ### Aspectos avanzados
-
-
+- Se ha usado la librería 'matplotlib' para ilustrar algunos resultados que no tenían sentido en caso de ser guardados en 'csv', como el número de pelícuals que realiza cada país.
+- Se ha cambiado el número de particiones de los datos para mejorar el rendimiento. Esto se explica en la sección siguiente.
+- Se ha explorado la API de los DataFrames de Spark para realizar operaciones como unión de Dataframes
 
 ## 4. Rendimiento - RAMÓN
 Cuando hablamos de rendimiento usamos como única métrica el tiempo de ejecución de los scrips. Esto es, el tiempo desde que se le encarga a Spark ejecutarlo (con "spark-submit") hasta que se genera el fichero de salida correspondiente. Sobre un mismo código, conseguimos optimizar este tiempo gracias a las herramientas de paralelización de Spark, que son:
