@@ -80,17 +80,35 @@ $ cat /etc/hosts
 172.30.4.210 ip-172-30-4-210
 ```
 
+**6. Instalar PIP:**
+```markdown
+sudo apt-get install python3-pip
+```
+
+**7. Instalar Matplotlib:**
+```markdown
+python -m pip install -U pip
+python -m pip install -U matplotlib
+```
+**8. Subir los scripts y el dataset (sólo si estamos en AWS):**
+
+Mediante la herramienta scp, necesitaremos subir todos los ficheros necesarios para realizar el estudio.
+
+
 
 FALTA INSTALAR PIP PARA EL MODULO DE LOS GRAFICOS
 SERÁ NECESARIO SUBIR LOS SCRIPTS Y EL DATASET PARA PROBARLOS EN AWS
 
 ### NUESTRO SOFTWARE
+
 Como hemos visto anteriormente, nuestro dataset se compone de 4 ficheros complementarios en formato CSV: 
  - *IMDb_movies.csv*: información sobre las películas
  - *IMDb_names.csv*: información sobre las personas 
  - *IMDb_ratings.csv*: información sobre las valoraciones
  - *IMDb_title_principals.csv*: información sobre la relacion de una película y las personas que participan en ella
+ 
 Las versiones subidas en la GitHub, son una versión reducida debido a la limitación de espacio de la propia plataforma.
+
 
 
 ### ASPECTOS AVANZADOS
