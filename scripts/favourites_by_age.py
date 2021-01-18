@@ -86,8 +86,7 @@ for i in range (AGE_RANGES_NO):
 	print("Favoutite movies of ages " + AGE_RANGES[i] + ":") 
 	AuxDF = DFVar.where(DFVar["imdb_title_id"].isin(*movieIds[i]))
 	AuxDF = AuxDF.drop("imdb_title_id")
-	AuxDF.show()
-	AuxDF.coalesce(1).write.format("csv").option("header", "true").save("../results/" + AGE_RANGES[i] + "_favourites.csv")
+	AuxDF.coalesce(1).write.format("csv").option("header", "true").mode("overwrite").save("../results/" + AGE_RANGES[i] + "_favourites.csv")
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))
