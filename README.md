@@ -67,6 +67,18 @@ $ sudo mkdir /usr/local/spark
 $ sudo cp -r spark-2.2.0-bin-hadoop2.7/* /usr/local/spark
 ```
 
+**5. Configurar el entorno:**
+Debemos añadir */usr/local/spark/bin* al *PATH* en el fichero *.profile*. Para ello debemos editar dicho fichero y añadirle la siguiente linea:
+```markdown
+export PATH="$PATH:/usr/local/spark/bin"
+```
+Después debemos ejecutar *source ~/.profile* para actualizar el PATH en la sesión actual. En el caso en el que estemos utilizando una VM en AWS, debemos incluir el nombre del host y la ip a la ruta */etc/hosts*. Por ejemplo:
+```markdown
+$ cat /etc/hosts
+127.0.0.1 localhost
+172.30.4.210 ip-172-30-4-210
+```
+
 ### ASPECTOS AVANZADOS
 
 
