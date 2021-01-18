@@ -25,7 +25,7 @@ Para nuestro proyecto, las herramientas que vamos a utilizar son las siguientes:
 
 ### REPRODUCIR NUESTRO ESTUDIO
 
-Para reproducir nuestro proyecto, podremos ejecutarlo en una instancia de AWS, o bien en nuestro propio computador en modo local. En cualquiera de los dos casos, vamos a suponer que no disponemos de ninguna instalación anterior. Los siguientes pasos sirven como referencia de instalaciones previas en una instancia **m4.xlarge** con **Ubuntu (16.04)**.
+Para reproducir nuestro proyecto, podremos ejecutarlo en una instancia de AWS, o bien en nuestro propio computador en modo local. En cualquiera de los dos casos, vamos a suponer que no disponemos de ninguna instalación anterior. Los siguientes pasos sirven como referencia de instalaciones previas en una instancia **m4.xlarge** con **Ubuntu (16.04)**. (Los 5 primeros pasos están sacados del PDF proporcionado por el profesor para la realización del *Hands-on Lab 4 - Install Spark in Local Mode*).
 
 **1. Instalación de Java:**
 ```markdown
