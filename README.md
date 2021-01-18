@@ -1,18 +1,6 @@
-# Movie Trends
+# MOVIE TRENDS
 
-## Índice
-1. **Introducción**
-   - Necesidad de Big Data
-   - Solución y resultados
-2. **Modelo de datos**
-3. **Descripción técnica**
-4. **Rendimiento**
-   - Gráficos con matplotlib en PySpark
-   - Desarrollo del Machine Learning
-5. **Conclusiones**
-
-
-## 1. Introducción - MICHAEL
+## 1. INTRODUCCIÓN - MICHAEL
  
  Este proyecto nace de una idea muy simple, somos un alto cargo de una empresa de distribución de películas como Netflix y queremos sacar el máximo beneficio de las películas que compramos y producimos, para alcanzar y mantener el mayor número de suscripciones a nuestra plataforma. ¿Cual fue el género más visto en años anteriores? ¿Que películas fueron las mejor valoradas? ¿Que actores/actrices han sido los mejor puntuados? La respuesta a estas preguntas nos ayuda a tomar decisiones para sacar una mayor rentabilidad a nuestra empresa.
  
@@ -22,25 +10,35 @@ Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor 
  Haciendo uso de estos datos y de métodos estadísticos se pueden hacer predicciones, a mayor cantidad de datos mayor fiabilidad del resultado. Estas predicciones hablan de los gustos y necesidades de los espectadores y de cómo van evolucionando. La evolución tiene que ver con los avances tecnológicos y culturales, lo que vemos reflejado en los datos.
  
 
-## 2. Modelo de datos- MICHAEL
+## 2. MODELO DE DATOS - MICHAEL
 
 
-## 3. Descripción técnica - JAVI
+## 3. DESCRIPCIÓN TÉCNICA - JAVI
  
-### Entorno de trabajo
+### ENTORNO DE TRABAJO
 
-### Software creado
+Para nuestro proyecto, las herramientas que vamos a utilizar son las siguientes:
 
-### Aspectos avanzados
+- Como lenguaje de programación para todos nuestros scripts, utilizaremos **Python**.
+- Para procesar dichos scripts utilizaremos **Apache Spark**, lo que nos permite hacer uso de una programación funcional paralela.
+- Para llevar a cabo las pruebas de nuestros scripts, hemos utilizado **Amazon Web Services** como plataforma para la ejecución de dichos scripts. 
+
+### REPRODUCIR NUESTRO ESTUDIO
+
+Aunque 
 
 
 
-## 4. Rendimiento - RAMÓN
+### ASPECTOS AVANZADOS
+
+
+
+## 4. RENDIMIENTO - RAMÓN
 
 
 
 
-## 5. Conclusiones
+## 5. CONCLUSIONES
 
 
 
