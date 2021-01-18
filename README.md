@@ -1,6 +1,18 @@
-# MOVIE TRENDS
+# Movie Trends
 
-## 1. INTRODUCCIÓN - MICHAEL
+## Índice
+1. **Introducción**
+   - Necesidad de Big Data
+   - Solución y resultados
+2. **Modelo de datos**
+3. **Descripción técnica**
+4. **Rendimiento**
+   - Gráficos con matplotlib en PySpark
+   - Desarrollo del Machine Learning
+5. **Conclusiones**
+
+
+## 1. Introducción - MICHAEL
  
  Este proyecto nace de una idea muy simple, somos un alto cargo de una empresa de distribución de películas como Netflix y queremos sacar el máximo beneficio de las películas que compramos y producimos, para alcanzar y mantener el mayor número de suscripciones a nuestra plataforma. ¿Cual fue el género más visto en años anteriores? ¿Que películas fueron las mejor valoradas? ¿Que actores/actrices han sido los mejor puntuados? La respuesta a estas preguntas nos ayuda a tomar decisiones para sacar una mayor rentabilidad a nuestra empresa.
  
@@ -10,25 +22,25 @@ Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor 
  Haciendo uso de estos datos y de métodos estadísticos se pueden hacer predicciones, a mayor cantidad de datos mayor fiabilidad del resultado. Estas predicciones hablan de los gustos y necesidades de los espectadores y de cómo van evolucionando. La evolución tiene que ver con los avances tecnológicos y culturales, lo que vemos reflejado en los datos.
  
 
-## 2. MODELO DE DATOS - MICHAEL
+## 2. Modelo de datos- MICHAEL
 
 
-## 3. DESCRIPCIÓN TÉCNICA - JAVI
+## 3. Descripción técnica - JAVI
  
-### ENTORNO DE TRABAJO
+### Entorno de trabajo
 
-### SOFTWARE CREADO
+### Software creado
 
-### ASPECTOS AVANZADOS
-
-
-
-## 4. RENDIMIENTO - RAMÓN
+### Aspectos avanzados
 
 
 
+## 4. Rendimiento - RAMÓN
 
-## 5. CONCLUSIONES
+
+
+
+## 5. Conclusiones
 
 
 
