@@ -61,8 +61,7 @@ $ python -h
 
 **4. Instalación de Spark:**
 ```markdown
-$ sudo curl -O
-http://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz
+$ sudo curl -O http://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz
 $ sudo tar xvf ./spark-2.2.0-bin-hadoop2.7.tgz
 $ sudo mkdir /usr/local/spark
 $ sudo cp -r spark-2.2.0-bin-hadoop2.7/* /usr/local/spark
