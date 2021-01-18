@@ -19,8 +19,9 @@ Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor 
 
 Para nuestro proyecto, las herramientas que vamos a utilizar son las siguientes:
 
-- Como lenguaje de programación para todos nuestros scripts, utilizaremos **Python**.
-- Para procesar dichos scripts utilizaremos **Apache Spark**, lo que nos permite hacer uso de una programación funcional paralela.
+- Para gestionar todos los ficheros que forman nuestro proyecto, hemos utilizado **GitHub**.
+- Como lenguaje de programación para todos nuestros scripts, hemos utilizado **Python**.
+- Para procesar dichos scripts hemos utilizado **Apache Spark**, ya que nos permite hacer uso de una programación funcional paralela.
 - Para llevar a cabo las pruebas de nuestros scripts, hemos utilizado **Amazon Web Services** como plataforma para la ejecución de dichos scripts. 
 
 ### REPRODUCIR NUESTRO ESTUDIO
