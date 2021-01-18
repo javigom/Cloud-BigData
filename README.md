@@ -92,7 +92,7 @@ python -m pip install -U matplotlib
 ```
 **8. Subir los scripts y el dataset (sólo si estamos en AWS):**
 
-Mediante la herramienta scp, necesitaremos subir todos los ficheros necesarios para realizar el estudio.
+Mediante el comando **SCP**, necesitaremos subir todos los ficheros necesarios (scripts y dataset) para el correcto desarrollo del estudio.
 
 
 ### NUESTRO SOFTWARE
