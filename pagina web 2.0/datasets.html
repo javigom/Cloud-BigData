@@ -16,7 +16,7 @@
 
 		<!-- Header -->
 			<header id="header">
-				<a href="index.html" class="title">Hyperspace</a>
+				<a href="index.html" class="title">Movie Trends</a>
 				<nav>
 					<ul>
 						<li><a href="index.html">Home</a></li>
@@ -32,10 +32,26 @@
 				<!-- Main -->
 					<section id="main" class="wrapper">
 						<div class="inner">
-							<h1 class="major">A Generic Page</h1>
-							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<h1 class="major">Datasets</h1>
+							<span class="image fit"><img src="images/dataset.jpg" alt="" /></span>
+							<p>nuestro dataset se compone de 4 ficheros complementarios en formato CSV:
+
+							   IMDb_movies.csv: información sobre las películas
+							   IMDb_names.csv: información sobre las personas
+							   IMDb_ratings.csv: información sobre las valoraciones
+							   IMDb_title_principals.csv: información sobre la relacion de una película y las personas que participan en ella
+							   Las versiones subidas en la GitHub, son una versión reducida debido a la limitación de espacio de la propia plataforma. 
+							   Para obtener el dataset completo, pincha <a href="https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset?select=IMDb+title_principals.csv">aquí</a></p>
+							<p>El software, lo hemos desarrollado en Python utilizando el dataset mencionado anteriormente. Se componen de varios scripts con distintos propósitos. 
+							   A continuación mostramos una breve descripción de cada script, el código se encuentra subido en nuestro repositorio de <a href="https://github.com/ramonarj/Cloud-BigData/tree/main/scripts">GitHub</a></p>
+							<p>movies_by_country.py: Genera un CSV con el número de películas que ha realizado cada país en nuestro dataset. Como puede haber varios paises participando en una misma película, sólo nos quedamos con el primero que aparece.
+							   ratings_by_country.py: Genera un CSV con la media de cada país en función de las películas que ha realizado. Al igual que el anterior, sólo tenemos en cuenta el primer país. Debido a que hay columnas desplazadas, es necesario filtrar aquellas valoraciones que no sean de tipo float.
+							   movies_by_genre.py: Al igual que el de los paises, genera un CSV con el número de películas de cada género teniendo en cuenta el primero que aparece.
+							   ratings_by_genre.py: Al igual que el de las valoraciones por país, genera un CSV con la valoración media de cada género, filtrando aquellas que sean erroneas.
+							   favourites_by_age.py: Este script devuelve varios CSV con las 3 películas favoritas de cada rango de edad. Para ello utiliza el fichero IMDb_ratings.csv, donde obtiene los identificadores y lo combina con IMDb_movies.csv para obtener más detalles de las películas en cuestión.
+							   favourites_by_sex.py: Tiene un funcionamiento parecido al anterior, sólo que en este caso devuelve dos ficheros CSV con las 11 películas mejor valoradas por hombres y mujeres.
+							   ratings_by_actor.py: Devuelve un CSV con las valoraciones media de cada actor o actriz ordenadas en orden decreciente por su valoración. Para ello, obtengo del fichero IMDb_title_principals.csv la relación entre el identificador de una película y el identificador de una persona para filtrar por actores/actrices. Después proceso el fichero IMDb_movies.csv, donde me quedo con las columna con el identificador y su valoración media para más tarde transformarlo en un diccionario. También proceso el fichero IMDb_names.csv del cual sme quedo con las columnas con el identificador y su nombre para construir un segundo diccionario. Al final, sólo me queda sustituir el identificador de la película con su nota, y reducir en función del identificador de la persona para obtener su media. Para terminar, sustituyo el identificador por su nombre real para saber de quien se trata.
+							   ratings_by_director.py: Devuelve un CSV con las valoraciones medias de cada director ordenadas en orden decreciente por su valoración. Tiene un funcionamiento similar al anterior pero en este caso, filtro los directores.</p>
 						</div>
 					</section>
 
