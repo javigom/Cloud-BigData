@@ -107,12 +107,12 @@ $ cat /etc/hosts
 172.30.4.210 ip-172-30-4-210
 ```
 
-**6. Instalar Matplotlib:**
+**6. Instación de la librería gráfica Matplotlib:**
 ```markdown
 sudo apt-get install python-matplotlib
 ```
 
-**7. Descargar los archivos:**
+**7. Descarga los archivos:**
 
 Se deben crear 3 carpetas; 'scripts/', 'datasets/' y 'results/' de forma similar a la que se ve en el repositorio.
 Se copian por tanto los 4 datasets en su carpeta, y los scripts que queramos testar en la correspondiente.
