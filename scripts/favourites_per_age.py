@@ -36,7 +36,7 @@ Por defecto se crean 200, pero nosotros usamos una heuristica de [num. ejecutore
 - Numero de ejecutores = 1 si se lanza en local, tantos como nodos si se trata de un cluster 
 - Numero de hilos/ejecutor = usaremos tantos cores como tenga el ejecutor (local[*])
 '''
-conf = SparkConf().setMaster('local[*]').setAppName('favoritesPerAge')
+conf = SparkConf().setMaster('local[*]').setAppName('favouritesPerAge')
 sc = SparkContext(conf = conf)
 spark = SparkSession(sc)
 sqlContext = SQLContext(sc)
@@ -87,7 +87,7 @@ for i in range (AGE_RANGES_NO):
 	AuxDF = DFVar.where(DFVar["imdb_title_id"].isin(*movieIds[i]))
 	AuxDF = AuxDF.drop("imdb_title_id")
 	AuxDF.show()
-	AuxDF.coalesce(1).write.format("csv").option("header", "true").save("../results/" + AGE_RANGES[i] + "_favorites.csv")
+	AuxDF.coalesce(1).write.format("csv").option("header", "true").save("../results/" + AGE_RANGES[i] + "_favourites.csv")
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))
