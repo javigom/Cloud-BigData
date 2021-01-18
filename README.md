@@ -27,7 +27,7 @@ Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor 
 ## 2. Modelo de datos - MICHAEL
 
 
-## 3. Descripción técnica- JAVI
+## 3. Descripción técnica
  
 ### Entorno de trabajo
 
