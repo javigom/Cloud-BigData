@@ -105,7 +105,12 @@ Como hemos visto anteriormente, nuestro dataset se compone de 4 ficheros complem
  
 Las versiones subidas en la GitHub, son una versión reducida debido a la limitación de espacio de la propia plataforma.
 
-
+El software, lo hemos desarrollado en Python utilizando el dataset mencionado anteriormente. Se componen de varios scripts con distintos propósitos.
+ - *movies_by_country.py*: Genera un CSV con el número de películas que ha realizado cada país en nuestro dataset. Como puede haber varios paises participando en una misma película, sólo nos quedamos con el primero que aparece.
+ - *ratings_by_country.py*: Genera un CSV con la media de cada país en función de las películas que ha realizado. Al igual que el anterior, sólo tenemos en cuenta el primer país. Debido a que hay columnas desplazadas, es necesario filtrar aquellas valoraciones que no sean de tipo *float*.
+  - *movies_by_genre.py*: Al igual que el de los paises, genera un CSV con el número de películas de cada género teniendo en cuenta el primero que aparece.
+  - *ratings_by_genre.py*: Al igual que el de las valoraciones por país, genera un CSV con la valoración media de cada género, filtrando aquellas que sean erroneas.
+  
 
 ### ASPECTOS AVANZADOS
 
