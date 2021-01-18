@@ -25,7 +25,7 @@ Para nuestro proyecto, las herramientas que vamos a utilizar son las siguientes:
 
 ### REPRODUCIR NUESTRO ESTUDIO
 
-Aunque 
+Para reproducir nuestro proyecto, será necesario disponer de una máquina virtual con Ubuntu en AWS o bien en nuestro ordenador 
 
 
 
