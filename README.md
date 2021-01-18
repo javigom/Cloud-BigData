@@ -25,7 +25,10 @@ Para nuestro proyecto, las herramientas que vamos a utilizar son las siguientes:
 
 ### REPRODUCIR NUESTRO ESTUDIO
 
-Para reproducir nuestro proyecto, podremos ejecutarlo en una instancia de AWS, o bien en nuestro propio computador en modo local.
+Para reproducir nuestro proyecto, podremos ejecutarlo en una instancia de AWS, o bien en nuestro propio computador en modo local. En cualquiera de los dos casos, vamos a suponer que no disponemos de ninguna instalación anterior.
+
+1. Instalación de Java:
+
 
 
 
