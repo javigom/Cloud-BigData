@@ -35,7 +35,7 @@ Por defecto se crean 200, pero nosotros usamos una heuristica de [num. ejecutore
 - Numero de ejecutores = 1 si se lanza en local, tantos como nodos si se trata de un cluster 
 - Numero de hilos/ejecutor = usaremos tantos cores como tenga el ejecutor (local[*])
 '''
-conf = SparkConf().setMaster('local[*]').setAppName('peliculas_por_pais')
+conf = SparkConf().setMaster('local[*]').setAppName('favouritesByAge')
 sc = SparkContext(conf = conf)
 spark = SparkSession(sc)
 sqlContext = SQLContext(sc)
