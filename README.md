@@ -85,6 +85,7 @@ $ sudo apt-get install python
 ```
 
 **4. Instalación de Spark y configuración del entorno:**
+
 Descargamos Spark de la página, lo descomprimimos y copiamos todos sus archivos a la carpeta 'local'
 ```markdown
 $ sudo curl -O http://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz
@@ -112,11 +113,13 @@ sudo apt-get install python-matplotlib
 ```
 
 **7. Descargar los archivos:**
+
 Se deben crear 3 carpetas; 'scripts/', 'datasets/' y 'results/' de forma similar a la que se ve en el repositorio.
 Se copian por tanto los 4 datasets en su carpeta, y los scripts que queramos testar en la correspondiente.
 
 
 **8. Ejecución de los scripts:**
+
 Antes de lanzar los scripts, y esto debe hacerse **cada vez que arranquemos el computador que estemos usando**, debemos especificar qué tipo de codificación queremos que use Python con:
 ```markdown
 export PYTHONIOENCODING=utf-8
