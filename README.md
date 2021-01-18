@@ -33,14 +33,31 @@ $ sudo apt-add-repository ppa:webupd8team/java
 $ sudo apt-get update
 $ sudo apt install openjdk-8-jdk
 ```
-Comprobación de que todo está correcto
+Comprobación de que todo ha funcionado correctamente:
 ```markdown
 $ java -version
 openjdk version "1.8.0_242"
 OpenJDK Runtime Environment (build 1.8.0_242-8u242-b08-0ubuntu3~16.04-b08)
 OpenJDK 64-Bit Server VM (build 25.242-b08, mixed mode)
 ```
+**2. Instalación de Scala:**
+```markdown
+$ sudo apt-get install scala
+```
+Comprobación de que todo ha funcionado correctamente:
+```markdown
+$ scala -version
+Scala code runner version 2.11.6 -- Copyright 2002-2013, LAMP/EPFL
+```
 
+**3. Instalación de Python:**
+```markdown
+$ sudo apt-get install python
+```
+Comprobación de que todo ha funcionado correctamente:
+```markdown
+$ python -h
+```
 
 
 ### ASPECTOS AVANZADOS
