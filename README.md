@@ -99,7 +99,7 @@ $ sudo cp -r spark-2.2.0-bin-hadoop2.7/* /usr/local/spark
 
 Debemos añadir spark (*/usr/local/spark/bin*) al *PATH* en el fichero *~/.profile*. Para ello debemos editar dicho fichero y añadirle la siguiente linea:
 ```markdown
-export PATH="$PATH:/usr/local/spark/bin"
+$ export PATH="$PATH:/usr/local/spark/bin"
 
 Después debemos ejecutar el siguiente comando para actualizar el PATH en la sesión actual.
 ```markdown
@@ -114,7 +114,7 @@ $ cat /etc/hosts
 
 **6. Instación de la librería gráfica Matplotlib:**
 ```markdown
-sudo apt-get install python-matplotlib
+$ sudo apt-get install python-matplotlib
 ```
 
 **7. Descarga los archivos:**
