@@ -31,7 +31,7 @@ Por defecto se crean 200, pero nosotros usamos una heuristica de [num. ejecutore
 - Numero de ejecutores = 1 si se lanza en local, tantos como nodos si se trata de un cluster 
 - Numero de hilos/ejecutor = usaremos tantos cores como tenga el ejecutor (local[*])
 '''
-conf = SparkConf().setMaster('local[*]').setAppName('MoviesPerGenre')
+conf = SparkConf().setMaster('local[*]').setAppName('MoviesByGenre')
 sc = SparkContext(conf = conf)
 spark = SparkSession(sc)
 sqlContext = SQLContext(sc)
@@ -71,7 +71,7 @@ counter = RDDVar.map(lambda (x, y): (x, 1)).reduceByKey(lambda x, y: x+y)
 DFRes = counter.toDF(["Genre", "Count"]).sort(desc("Count"))
 
 # Lo guardo en un fichero
-DFRes.write.format("csv").save("../output/movies_per_genre")
+DFRes.write.format("csv").save("../output/movies_by_genre")
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))
