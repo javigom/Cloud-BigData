@@ -29,7 +29,7 @@ Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor 
 
 ## 3. Descripción técnica
  
-### Entorno de trabajo
+### - Entorno de trabajo -
 
 Para nuestro proyecto, las herramientas que vamos a utilizar son las siguientes:
 
@@ -60,7 +60,7 @@ El software, lo hemos desarrollado en Python utilizando el dataset mencionado an
   - **ratings_by_director.py**: Devuelve un CSV con las valoraciones medias de cada director ordenadas en orden decreciente por su valoración. Tiene un funcionamiento similar al anterior pero en este caso, filtro los directores.
   
  
-### Reproducir nuestro estudio
+### - Reproducir nuestro estudio -
 
 Para reproducir nuestro proyecto, podremos ejecutarlo en una instancia de AWS, o bien en nuestro propio computador en modo local. En cualquiera de los dos casos, vamos a suponer que no disponemos de ninguna instalación anterior. Los siguientes pasos sirven como referencia de instalaciones previas en una instancia **m4.xlarge** con **Ubuntu (16.04)**. (Los 5 primeros pasos están sacados del PDF proporcionado por el profesor para la realización del *Hands-on Lab 4 - Install Spark in Local Mode*).
 
@@ -126,12 +126,12 @@ spark-submit movies_by_country.py
 Los resultados se guardarán automáticamente dentro de la carpeta 'results'. Si el script genera un '.csv', se creará una carpeta con un único archivo dentro. El nombre de este archivo es del tipo 'partxxxx-xxxxx', pero se encuentra ya unido con las demás particiones creadas por Spark.
 Si por el contrario genera un png, se guardará directamente en la carpeta 'results'.
 
-### Aspectos avanzados
+### - Aspectos avanzados -
 - Se ha usado la librería 'matplotlib' para ilustrar algunos resultados que no tenían sentido en caso de ser guardados en 'csv', como el número de pelícuals que realiza cada país.
 - Se ha cambiado el número de particiones de los datos para mejorar el rendimiento. Esto se explica en la sección siguiente.
 - Se ha explorado la API de los DataFrames de Spark para realizar operaciones como unión de Dataframes
 
-## 4. Rendimiento - RAMÓN
+## 4. Rendimiento
 Cuando hablamos de rendimiento usamos como única métrica el tiempo de ejecución de los scrips. Esto es, el tiempo desde que se le encarga a Spark ejecutarlo (con "spark-submit") hasta que se genera el fichero de salida correspondiente. Sobre un mismo código, conseguimos optimizar este tiempo gracias a las herramientas de paralelización de Spark, que son:
 
 ### - Número de ejecutores -
