@@ -1,3 +1,6 @@
+#!/usr/local/bin/python
+# -*- coding: utf-8 -*-
+
 # Cloud & Big Data, UCM, 2021
 
 # Ramon Arjona Quiniones
@@ -13,6 +16,8 @@ import time
 start_time = time.time()
 import string
 import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 # Spark
 from pyspark import SparkConf, SparkContext, SQLContext
