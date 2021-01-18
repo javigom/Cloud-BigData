@@ -95,10 +95,6 @@ python -m pip install -U matplotlib
 Mediante la herramienta scp, necesitaremos subir todos los ficheros necesarios para realizar el estudio.
 
 
-
-FALTA INSTALAR PIP PARA EL MODULO DE LOS GRAFICOS
-SERÁ NECESARIO SUBIR LOS SCRIPTS Y EL DATASET PARA PROBARLOS EN AWS
-
 ### NUESTRO SOFTWARE
 
 Como hemos visto anteriormente, nuestro dataset se compone de 4 ficheros complementarios en formato CSV: 
