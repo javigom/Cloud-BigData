@@ -15,7 +15,11 @@ Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor 
 
 ## 3. DESCRIPCIÓN TÉCNICA - JAVI
  
+### ENTORNO DE TRABAJO
 
+### SOFTWARE CREADO
+
+### ASPECTOS AVANZADOS
 
 
 
