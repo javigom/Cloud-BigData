@@ -31,7 +31,7 @@ Por defecto se crean 200, pero nosotros usamos una heuristica de [num. ejecutore
 - Numero de ejecutores = 1 si se lanza en local, tantos como nodos si se trata de un cluster 
 - Numero de hilos/ejecutor = usaremos tantos cores como tenga el ejecutor (local[*])
 '''
-conf = SparkConf().setMaster('local[*]').setAppName('RatingPerDirector')
+conf = SparkConf().setMaster('local[*]').setAppName('RatingsByDirector')
 sc = SparkContext(conf = conf)
 spark = SparkSession(sc)
 sqlContext = SQLContext(sc)
@@ -129,7 +129,7 @@ res = suma.union(counter).reduceByKey(lambda x, y: round(x/y, 1))
 DFRes = res.map(lambda (x, y): (NamesDict.get(x), y)).toDF(["Name", "Rating"]).sort(desc("Rating"))
 
 # Lo guardo en un fichero
-DFRes.write.format("csv").save("../output/rating_per_director")
+DFRes.write.format("csv").save("../output/ratings_by_director")
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))
