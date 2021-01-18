@@ -86,10 +86,10 @@ SERÁ NECESARIO SUBIR LOS SCRIPTS Y EL DATASET PARA PROBARLOS EN AWS
 
 ### NUESTRO SOFTWARE
 Como hemos visto anteriormente, nuestro dataset se compone de 4 ficheros complementarios en formato CSV: 
-*- IMDb_movies.csv*: información sobre las películas
-*- IMDb_names.csv*: información sobre las personas 
-*- IMDb_ratings.csv*: información sobre las valoraciones
-*- IMDb_title_principals.csv*: información sobre la relacion de una película y las personas que participan en ella
+ - *IMDb_movies.csv*: información sobre las películas
+ - *IMDb_names.csv*: información sobre las personas 
+ - *IMDb_ratings.csv*: información sobre las valoraciones
+ - *IMDb_title_principals.csv*: información sobre la relacion de una película y las personas que participan en ella
 Las versiones subidas en la GitHub, son una versión reducida debido a la limitación de espacio de la propia plataforma.
 
 
