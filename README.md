@@ -98,18 +98,20 @@ Mediante el comando **SCP**, necesitaremos subir todos los ficheros necesarios (
 ### NUESTRO SOFTWARE
 
 Como hemos visto anteriormente, nuestro dataset se compone de 4 ficheros complementarios en formato CSV: 
- - *IMDb_movies.csv*: información sobre las películas
- - *IMDb_names.csv*: información sobre las personas 
- - *IMDb_ratings.csv*: información sobre las valoraciones
- - *IMDb_title_principals.csv*: información sobre la relacion de una película y las personas que participan en ella
+ - **IMDb_movies.csv**: información sobre las películas
+ - **IMDb_names.csv**: información sobre las personas 
+ - **IMDb_ratings.csv**: información sobre las valoraciones
+ - **IMDb_title_principals.csv**: información sobre la relacion de una película y las personas que participan en ella
  
 Las versiones subidas en la GitHub, son una versión reducida debido a la limitación de espacio de la propia plataforma.
 
 El software, lo hemos desarrollado en Python utilizando el dataset mencionado anteriormente. Se componen de varios scripts con distintos propósitos.
- - *movies_by_country.py*: Genera un CSV con el número de películas que ha realizado cada país en nuestro dataset. Como puede haber varios paises participando en una misma película, sólo nos quedamos con el primero que aparece.
- - *ratings_by_country.py*: Genera un CSV con la media de cada país en función de las películas que ha realizado. Al igual que el anterior, sólo tenemos en cuenta el primer país. Debido a que hay columnas desplazadas, es necesario filtrar aquellas valoraciones que no sean de tipo *float*.
-  - *movies_by_genre.py*: Al igual que el de los paises, genera un CSV con el número de películas de cada género teniendo en cuenta el primero que aparece.
-  - *ratings_by_genre.py*: Al igual que el de las valoraciones por país, genera un CSV con la valoración media de cada género, filtrando aquellas que sean erroneas.
+ - **movies_by_country.py**: Genera un CSV con el número de películas que ha realizado cada país en nuestro dataset. Como puede haber varios paises participando en una misma película, sólo nos quedamos con el primero que aparece.
+ - **ratings_by_country.py**: Genera un CSV con la media de cada país en función de las películas que ha realizado. Al igual que el anterior, sólo tenemos en cuenta el primer país. Debido a que hay columnas desplazadas, es necesario filtrar aquellas valoraciones que no sean de tipo *float*.
+  - **movies_by_genre.py**: Al igual que el de los paises, genera un CSV con el número de películas de cada género teniendo en cuenta el primero que aparece.
+  - **ratings_by_genre.py**: Al igual que el de las valoraciones por país, genera un CSV con la valoración media de cada género, filtrando aquellas que sean erroneas.
+  - **favourites_by_age.py**: Este script devuelve varios CSV con las 3 películas favoritas de cada rango de edad. Para ello utiliza el fichero *IMDb_ratings.csv*, donde obtiene los identificadores y lo combina con *IMDb_movies.csv* para obtener más detalles de las películas en cuestión.
+  - **favourites_by_sex.py**: Tiene un funcionamiento parecido al anterior, sólo que en este caso devuelve dos ficheros CSV con las 11 películas mejor valoradas por hombres y mujeres.
   
 
 ### ASPECTOS AVANZADOS
