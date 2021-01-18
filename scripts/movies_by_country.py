@@ -66,6 +66,9 @@ DFVar = DFVar.drop("country")
 DFVar = DFVar.groupBy("mainCountry").count()
 DFVar = DFVar.sort(desc("count"))
 
+# Lo guardo en un fichero
+DFVar.write.format("csv").save("../output/movies_by_country")
+
 ## GRAFICA ##
 # Preprocesado
 num_countries = DFVar.count()
