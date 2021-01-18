@@ -31,7 +31,7 @@ Por defecto se crean 200, pero nosotros usamos una heuristica de [num. ejecutore
 - Numero de ejecutores = 1 si se lanza en local, tantos como nodos si se trata de un cluster 
 - Numero de hilos/ejecutor = usaremos tantos cores como tenga el ejecutor (local[*])
 '''
-conf = SparkConf().setMaster('local[*]').setAppName('FavouritesPerYear')
+conf = SparkConf().setMaster('local[*]').setAppName('FavouritesByYear')
 sc = SparkContext(conf = conf)
 spark = SparkSession(sc)
 sqlContext = SQLContext(sc)
@@ -66,7 +66,7 @@ print(DFVar)
 '''
 
 # Lo guardo en un fichero de texto
-DFRes.write.format("csv").save("../output/rating_per_country")
+DFRes.write.format("csv").save("../output/favourites_by_year")
 
 # Debug del tiempo, para el benchmarking
 print("--- %s seconds ---" % (time.time() - start_time))'''
