@@ -68,6 +68,7 @@ $ sudo cp -r spark-2.2.0-bin-hadoop2.7/* /usr/local/spark
 ```
 
 **5. Configurar el entorno:**
+
 Debemos añadir */usr/local/spark/bin* al *PATH* en el fichero *.profile*. Para ello debemos editar dicho fichero y añadirle la siguiente linea:
 ```markdown
 export PATH="$PATH:/usr/local/spark/bin"
