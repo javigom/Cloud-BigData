@@ -111,7 +111,11 @@ Se copian por tanto los 4 datasets en su carpeta, y los scripts que queramos tes
 
 
 **8. Ejecución de los scripts:**
-Desde dentro de la carpeta 'scripts/', debemos encargar a Spark que ejecute el programa. Por ejemplo:
+Antes de lanzar los scripts, y esto debe hacerse **cada vez que arranquemos el computador que estemos usando**, debemos especificar qué tipo de codificación queremos que use Python con:
+```markdown
+export PYTHONIOENCODING=utf-8
+```
+Una vez hecho esto, nos situamos dentro de la carpeta 'scripts/' y encargamos a Spark que ejecute el programa. Por ejemplo:
 ```markdown
 spark-submit movies_by_country.py
 ```
@@ -139,7 +143,7 @@ Una vez más distinguimos entre modo local y cluster. En modo local, especificam
 
 En modo cluster, le especificamos que use los cores directamente al lanzar el script
 ```markdown
-spark-submit --num-executors <x> --executor-cores <y> s cript
+spark-submit --num-executors <x> --executor-cores <y> script
 ```
 
 ### - Número de tareas -
