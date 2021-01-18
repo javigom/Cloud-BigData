@@ -138,8 +138,25 @@ spark-submit movies_by_country.py
 
 
 ## 4. Rendimiento - RAMÓN
+Cuando hablamos de rendimiento usamos como única métrica el tiempo de ejecución de los scrips. Esto es, el tiempo desde que se le encarga a Spark ejecutarlo (con "spark-submit") hasta que se genera el fichero de salida correspondiente. Sobre un mismo código, conseguimos optimizar este tiempo gracias a las herramientas de paralelización de Spark, que son:
+
+### - Número de ejecutores -
+Si ejecutamos Spark en modo local, este número será siempre 1. Sin embargo, si estamos lanzándolo en un cluster, podremos tener tantos ejecutores como nodos vayamos añadiendo. Eso sí, en este caso será necesario quitar el siguiente fragmento de código en la inicializaciónd de Spark:
+```markdown
+setMaster('local[*]')
+```
+
+### - Número de hilos/ejecutor -
+Una vez más distinguimos entre modo local y cluster. En modo local, especificamos a Spark que queremos que use cree tantos hilos como cores haya disponibles. De ahí la línea:
 
 
+En modo cluster, le especificamos que use los cores directamente al lanzar el script
+```markdown
+spark-submit --num-executors <x> --executor-cores <y> s cript
+```
+
+### - Número de tareas -
+Podemos especificar cuántas tareas distintas creará Spark por debajo para hacer el shuffle. Estas tareas coinciden, en nuestro caso, con el número de particiones que se harán del dataframe en cuestión. Usando una heurística bastante fiable, establecemos el nº de tareas (o particiones) al **producto de los ejecutores * hilos que tiene cada uno**. De esta forma conseguimos tiempos óptimos, y significa que cada core disponible estaría encargándose de una partición del dataframe
 
 
 ## 5. Conclusiones
