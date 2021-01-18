@@ -37,7 +37,7 @@ spark = SparkSession(sc)
 sqlContext = SQLContext(sc)
 
 # Num de tareas
-DATAFRAME_PARTITIONS = 1
+DATAFRAME_PARTITIONS = 4
 sqlContext.setConf("spark.sql.shuffle.partitions", DATAFRAME_PARTITIONS)
 
 ## PROCESAMIENTO DE LOS DATOS ##
