@@ -105,13 +105,12 @@ $ cat /etc/hosts
 
 **6. Instalar PIP:**
 ```markdown
-sudo apt-get install python3-pip
+sudo apt-get install python-pip
 ```
 
 **7. Instalar Matplotlib:**
 ```markdown
-python -m pip install -U pip
-python -m pip install -U matplotlib
+pip install matplotlib
 ```
 **8. Subir los scripts y el dataset (sólo si estamos en AWS):**
 
