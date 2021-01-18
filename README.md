@@ -25,12 +25,13 @@ Para nuestro proyecto, las herramientas que vamos a utilizar son las siguientes:
 
 ### REPRODUCIR NUESTRO ESTUDIO
 
-Para reproducir nuestro proyecto, podremos ejecutarlo en una instancia de AWS, o bien en nuestro propio computador en modo local. En cualquiera de los dos casos, vamos a suponer que no disponemos de ninguna instalación anterior.
+Para reproducir nuestro proyecto, podremos ejecutarlo en una instancia de AWS, o bien en nuestro propio computador en modo local. En cualquiera de los dos casos, vamos a suponer que no disponemos de ninguna instalación anterior. Los siguientes pasos sirven como referencia de instalaciones previas en una instancia **m4.xlarge** con **Ubuntu (16.04)**.
 
 1. Instalación de Java:
 ```markdown
-
-
+$ sudo apt-add-repository ppa:webupd8team/java
+$ sudo apt-get update
+$ sudo apt install openjdk-8-jdk
 ```
 
 
