@@ -145,16 +145,18 @@ Si por el contrario genera un png, se guardará directamente en la carpeta 'resu
 - Se ha cambiado el número de particiones de los datos para mejorar el rendimiento. Esto se explica en la sección siguiente.
 - Se ha explorado la API de los DataFrames de Spark para realizar operaciones como unión de Dataframes
 
-## 4. Rendimiento
+## 5. Resultados
+
+### - Rendimiento -
 Cuando hablamos de rendimiento usamos como única métrica el tiempo de ejecución de los scrips. Esto es, el tiempo desde que se le encarga a Spark ejecutarlo (con "spark-submit") hasta que se genera el fichero de salida correspondiente. Sobre un mismo código, conseguimos optimizar este tiempo gracias a las herramientas de paralelización de Spark, que son:
 
-### - Número de ejecutores -
+### Número de ejecutores
 Si ejecutamos Spark en modo local, este número será siempre 1. Sin embargo, si estamos lanzándolo en un cluster, podremos tener tantos ejecutores como nodos vayamos añadiendo. Eso sí, en este caso será necesario quitar el siguiente fragmento de código en la inicializaciónd de Spark:
 ```markdown
 setMaster('local[*]')
 ```
 
-### - Número de hilos/ejecutor -
+### Número de hilos/ejecutor
 Una vez más distinguimos entre modo local y cluster. En modo local, especificamos a Spark que queremos que use cree tantos hilos como cores haya disponibles. De ahí la línea:
 
 
@@ -163,7 +165,7 @@ En modo cluster, le especificamos que use los cores directamente al lanzar el sc
 spark-submit --num-executors <x> --executor-cores <y> script
 ```
 
-### - Número de tareas -
+### Número de tareas
 Podemos especificar cuántas tareas distintas creará Spark por debajo para hacer el shuffle. Estas tareas coinciden, en nuestro caso, con el número de particiones que se harán del dataframe en cuestión. Usando una heurística bastante fiable, establecemos el nº de tareas (o particiones) al **producto de los ejecutores * hilos que tiene cada uno**. De esta forma conseguimos tiempos óptimos, y significa que cada core disponible estaría encargándose de una partición del dataframe
 
 
