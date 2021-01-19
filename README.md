@@ -52,7 +52,7 @@ Para nuestro proyecto, las herramientas que vamos a utilizar son las siguientes:
 
 ### - Software -
 
-A partir de los ficheros mencionados anteriormente, nos encontramos con el software, qie lo hemos desarrollado en Python. Se componen de varios scripts con distintos propósitos. A continuación mostramos una breve descripción de cada script, el código se encuentra subido en nuestro repositorio de GitHub.
+A partir de los ficheros mencionados anteriormente, nos encontramos con el software, que lo hemos desarrollado en Python. Se componen de varios scripts con distintos propósitos. A continuación mostramos una breve descripción de cada script, el código se encuentra subido en nuestro repositorio de GitHub.
 
  - **movies_by_country.py**: Genera un CSV con el número de películas que ha realizado cada país en nuestro dataset. Como puede haber varios paises participando en una misma película, sólo nos quedamos con el primero que aparece.
  - **ratings_by_country.py**: Genera un CSV con la media de cada país en función de las películas que ha realizado. Al igual que el anterior, sólo tenemos en cuenta el primer país. Debido a que hay columnas desplazadas, es necesario filtrar aquellas valoraciones que no sean de tipo *float*.
