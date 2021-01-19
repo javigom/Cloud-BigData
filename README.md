@@ -189,3 +189,5 @@ Podemos especificar cuántas tareas distintas creará Spark por debajo para hace
 
 - Dataset de Kaggle: https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset?select=IMDb+title_principals.csv
 
+Cloud & Big Data. Grupo 1: Javier Gómez Moraleda, Ramón Arjona Quiñones y Michael Steven Paredes Sánchez.
+
