@@ -176,3 +176,11 @@ Podemos especificar cuántas tareas distintas creará Spark por debajo para hace
 
 - Hemos aprendido a manejar grandes cantidades de datos, a desenvolvernos con el uso de spark y también a utilizar los servicios básicos de AWS.
 
+## 6. Citas
+
+- Repositorio: https://github.com/ramonarj/Cloud-BigData
+
+- Página web: https://ramonarj.github.io/Cloud-BigData/
+
+- Dataset de Kaggle: https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset?select=IMDb+title_principals.csv
+
