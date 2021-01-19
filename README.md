@@ -31,6 +31,13 @@ Nosotros hemos planteado como la solución a esos problemas, manejar datasets su
 Nuestros datos han sido obtenidos de cuatro datasets sobre IMDb, que tiene información relevante de de las películas como su año de estreno, valoraciones, duración, donde fue hecha, su género, al igual que la información de los actores que intervienen en ella.
 Con todos estos datos, lo que hemos hecho es ir organizando y filtrando distintas condiciones para poder hacer nuestras predicciones y gráficos.
 
+Los ficheros son los siguientes: 
+ - **IMDb_movies.csv**: información sobre las películas
+ - **IMDb_names.csv**: información sobre las personas 
+ - **IMDb_ratings.csv**: información sobre las valoraciones
+ - **IMDb_title_principals.csv**: información sobre la relacion de una película y las personas que participan en ella
+ 
+Las versiones subidas en la GitHub, son una versión reducida debido a la limitación de espacio de la propia plataforma. Para obtener el dataset completo, visita el siguiente enlace (https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset?select=IMDb+title_principals.csv).
 
 ## 3. Descripción técnica
  
@@ -45,15 +52,7 @@ Para nuestro proyecto, las herramientas que vamos a utilizar son las siguientes:
 
 ### - Software -
 
-Como hemos visto anteriormente, nuestro dataset se compone de 4 ficheros complementarios en formato CSV: 
- - **IMDb_movies.csv**: información sobre las películas
- - **IMDb_names.csv**: información sobre las personas 
- - **IMDb_ratings.csv**: información sobre las valoraciones
- - **IMDb_title_principals.csv**: información sobre la relacion de una película y las personas que participan en ella
- 
-Las versiones subidas en la GitHub, son una versión reducida debido a la limitación de espacio de la propia plataforma. Para obtener el dataset completo, visita el siguiente enlace (https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset?select=IMDb+title_principals.csv).
-
-El software, lo hemos desarrollado en Python utilizando el dataset mencionado anteriormente. Se componen de varios scripts con distintos propósitos. A continuación mostramos una breve descripción de cada script, el código se encuentra subido en nuestro repositorio de GitHub.
+A partir de los ficheros mencionados anteriormente, nos encontramos con el software, qie lo hemos desarrollado en Python. Se componen de varios scripts con distintos propósitos. A continuación mostramos una breve descripción de cada script, el código se encuentra subido en nuestro repositorio de GitHub.
 
  - **movies_by_country.py**: Genera un CSV con el número de películas que ha realizado cada país en nuestro dataset. Como puede haber varios paises participando en una misma película, sólo nos quedamos con el primero que aparece.
  - **ratings_by_country.py**: Genera un CSV con la media de cada país en función de las películas que ha realizado. Al igual que el anterior, sólo tenemos en cuenta el primer país. Debido a que hay columnas desplazadas, es necesario filtrar aquellas valoraciones que no sean de tipo *float*.
