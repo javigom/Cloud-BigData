@@ -9,13 +9,12 @@
    - Entorno de trabajo
    - Software
    - Reproducir nuestro estudio
-4. **Rendimiento**
-   - Número de ejecutores
-   - Número de hilos/ejecutor
-   - Número de tareas
+4. **Resultados**
+   - Ficheros de salida
+   - Rendimiento
 5. **Conclusiones**
 
-## 1. Introducción - MICHAEL
+## 1. Introducción
  
  Este proyecto nace de una idea muy simple, somos un alto cargo de una empresa de distribución de películas como Netflix y queremos sacar el máximo beneficio de las películas que compramos y producimos, para alcanzar y mantener el mayor número de suscripciones a nuestra plataforma. ¿Cual fue el género más visto en años anteriores? ¿Que películas fueron las mejor valoradas? ¿Que actores/actrices han sido los mejor puntuados? La respuesta a estas preguntas nos ayuda a tomar decisiones para sacar una mayor rentabilidad a nuestra empresa.
  
@@ -24,11 +23,11 @@
 Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor velocidad.
  Haciendo uso de estos datos y de métodos estadísticos se pueden hacer predicciones, a mayor cantidad de datos mayor fiabilidad del resultado. Estas predicciones hablan de los gustos y necesidades de los espectadores y de cómo van evolucionando. La evolución tiene que ver con los avances tecnológicos y culturales, lo que vemos reflejado en los datos.
  
-### Solución
+### - Nuestra solución -
 Nosotros hemos planteado como la solución a esos problemas, manejar datasets sumamente amplios, con información variada de las películas, que usamos para conseguir, por ejemplo, las mejores películas de un país, los países con más películas, el género más visto de un país como España... Con el objetivo de demostrar mediante datos, que películas merecería la pena adquirir para lo servicios de streaming de peliculas, ya que son muy populares y esta siendo todo un éxito en la audiencia, o una prediccion de que género esta siendo muy aceptado en la audiencia y se debería tener en cuenta para aumentar la probabilidad de éxito.
 
 
-## 2. Modelo de datos - MICHAEL
+## 2. Modelo de datos
 Nuestros datos han sido obtenidos de cuatro datasets sobre IMDb, que tiene información relevante de de las películas como su año de estreno, valoraciones, duración, donde fue hecha, su género, al igual que la información de los actores que intervienen en ella.
 Con todos estos datos, lo que hemos hecho es ir organizando y filtrando distintas condiciones para poder hacer nuestras predicciones y gráficos.
 
@@ -145,16 +144,18 @@ Si por el contrario genera un png, se guardará directamente en la carpeta 'resu
 - Se ha cambiado el número de particiones de los datos para mejorar el rendimiento. Esto se explica en la sección siguiente.
 - Se ha explorado la API de los DataFrames de Spark para realizar operaciones como unión de Dataframes
 
-## 4. Rendimiento
+## 5. Resultados
+
+### - Rendimiento -
 Cuando hablamos de rendimiento usamos como única métrica el tiempo de ejecución de los scrips. Esto es, el tiempo desde que se le encarga a Spark ejecutarlo (con "spark-submit") hasta que se genera el fichero de salida correspondiente. Sobre un mismo código, conseguimos optimizar este tiempo gracias a las herramientas de paralelización de Spark, que son:
 
-### - Número de ejecutores -
+### Número de ejecutores
 Si ejecutamos Spark en modo local, este número será siempre 1. Sin embargo, si estamos lanzándolo en un cluster, podremos tener tantos ejecutores como nodos vayamos añadiendo. Eso sí, en este caso será necesario quitar el siguiente fragmento de código en la inicializaciónd de Spark:
 ```markdown
 setMaster('local[*]')
 ```
 
-### - Número de hilos/ejecutor -
+### Número de hilos/ejecutor
 Una vez más distinguimos entre modo local y cluster. En modo local, especificamos a Spark que queremos que use cree tantos hilos como cores haya disponibles. De ahí la línea:
 
 
@@ -163,7 +164,7 @@ En modo cluster, le especificamos que use los cores directamente al lanzar el sc
 spark-submit --num-executors <x> --executor-cores <y> script
 ```
 
-### - Número de tareas -
+### Número de tareas
 Podemos especificar cuántas tareas distintas creará Spark por debajo para hacer el shuffle. Estas tareas coinciden, en nuestro caso, con el número de particiones que se harán del dataframe en cuestión. Usando una heurística bastante fiable, establecemos el nº de tareas (o particiones) al **producto de los ejecutores * hilos que tiene cada uno**. De esta forma conseguimos tiempos óptimos, y significa que cada core disponible estaría encargándose de una partición del dataframe
 
 
