@@ -168,6 +168,7 @@ spark-submit --num-executors <x> --executor-cores <y> script
 ### Número de tareas
 Podemos especificar cuántas tareas distintas creará Spark por debajo para hacer el shuffle. Estas tareas coinciden, en nuestro caso, con el número de particiones que se harán del dataframe en cuestión. Usando una heurística bastante fiable, establecemos el nº de tareas (o particiones) al **producto de los ejecutores * hilos que tiene cada uno**. De esta forma conseguimos tiempos óptimos, y significa que cada core disponible estaría encargándose de una partición del dataframe
 
+! (https://github.com/ramonarj/Cloud-BigData/blob/main/pagina%20web%202.0/images/Sin%20t%C3%ADtulo.png)
 
 ## 5. Conclusiones
 
