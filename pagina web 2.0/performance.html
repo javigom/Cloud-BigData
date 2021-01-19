@@ -31,8 +31,7 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">Rendimiento</h1>
-							<a href="#" class="image"><img src="images/Sin título.png" alt="" data-position="center center" /></a>
-							<span class="image fit"><img src="images/Sin título.png" alt="cover" /></span>
+
 							<!-- Text -->
 								<section>
 									<p>Si ejecutamos Spark en modo local, este número será siempre 1. Sin embargo, si estamos lanzándolo en un cluster, podremos tener tantos ejecutores como nodos vayamos añadiendo. 
@@ -49,6 +48,7 @@
 									<p>Podemos especificar cuántas tareas distintas creará Spark por debajo para hacer el shuffle. Estas tareas coinciden, en nuestro caso, 
 									con el número de particiones que se harán del dataframe en cuestión. Usando una heurística bastante fiable, establecemos el nº de tareas (o particiones) al 
 									<b>producto de los ejecutores * hilos que tiene cada uno</b>. De esta forma conseguimos tiempos óptimos, y significa que cada core disponible estaría encargándose de una partición del dataframe
+									<span class="image fit"><img src="images/Sin título.png" alt="cover" /></span>
 									</p>
 									
 								</section>
