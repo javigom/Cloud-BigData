@@ -146,6 +146,7 @@ Si por el contrario genera un png, se guardará directamente en la carpeta 'resu
 ## 5. Resultados
 
 Los resultados obtenidos tras la ejecución de nuestros scripts se encuentran en la carpeta de result de nuestro repositorio.
+*Link*: https://github.com/ramonarj/Cloud-BigData/tree/main/results
 
 ### - Rendimiento -
 Cuando hablamos de rendimiento usamos como única métrica el tiempo de ejecución de los scrips. Esto es, el tiempo desde que se le encarga a Spark ejecutarlo (con "spark-submit") hasta que se genera el fichero de salida correspondiente. Sobre un mismo código, conseguimos optimizar este tiempo gracias a las herramientas de paralelización de Spark, que son:
