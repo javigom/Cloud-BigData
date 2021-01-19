@@ -9,10 +9,9 @@
    - Entorno de trabajo
    - Software
    - Reproducir nuestro estudio
-4. **Rendimiento**
-   - Número de ejecutores
-   - Número de hilos/ejecutor
-   - Número de tareas
+4. **Resultados**
+   - Ficheros de salida
+   - Rendimiento
 5. **Conclusiones**
 
 ## 1. Introducción - MICHAEL
