@@ -169,3 +169,10 @@ Podemos especificar cuántas tareas distintas creará Spark por debajo para hace
 
 
 ## 5. Conclusiones
+
+- Hemos realizado un pequeño estudio sobre las películas mejor valoradas para distintos propósitos.
+
+- Mejorar las valoraciones medias utilizando el número de votos y de películas para una valoración más precisa.
+
+- Hemos aprendido a manejar grandes cantidades de datos, a desenvolvernos con el uso de spark y también a utilizar los servicios básicos de AWS.
+
