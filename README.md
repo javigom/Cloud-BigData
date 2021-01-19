@@ -25,9 +25,12 @@ Al estar estructurados la búsqueda y análisis de datos se procesarán a mayor 
  Haciendo uso de estos datos y de métodos estadísticos se pueden hacer predicciones, a mayor cantidad de datos mayor fiabilidad del resultado. Estas predicciones hablan de los gustos y necesidades de los espectadores y de cómo van evolucionando. La evolución tiene que ver con los avances tecnológicos y culturales, lo que vemos reflejado en los datos.
  
 ### Solución
+Nosotros hemos planteado como la solución a esos problemas, manejar datasets sumamente amplios, con información variada de las películas, que usamos para conseguir, por ejemplo, las mejores películas de un país, los países con más películas, el género más visto de un país como España, etc.
 
 
 ## 2. Modelo de datos - MICHAEL
+Nuestros datos han sido obtenidos de cuatro datasets sobre IMDb, que tiene información relevante de de las películas como su año de estreno, valoraciones, duración, donde fue hecha, su género, al igual que la información de los actores que intervienen en ella.
+Con todos estos datos, lo que hemos hecho es ir organizando y filtrando distintas condiciones para poder hacer nuestras predicciones y gráficos.
 
 
 ## 3. Descripción técnica
