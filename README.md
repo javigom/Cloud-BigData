@@ -180,7 +180,7 @@ Podemos especificar cuántas tareas distintas creará Spark por debajo para hace
 
 - Repositorio: https://github.com/ramonarj/Cloud-BigData
 
-- Página web: https://ramonarj.github.io/Cloud-BigData/
+- Página web: https://ramonarj.github.io/Cloud-BigData/pagina%20web%202.0/index.html
 
 - Dataset de Kaggle: https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset?select=IMDb+title_principals.csv
 
